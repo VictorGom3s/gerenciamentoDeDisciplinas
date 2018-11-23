@@ -40,10 +40,7 @@ void menuHistoricoAluno()
 
     fclose(fp);
     printf("\nArquivo %s foi gerado com sucesso!\n",ra);
-    
-    free(cRend);
-    free(crDesc);
-
+ 
 }
 
 void menuRendimento(FILE *fp)
@@ -70,13 +67,13 @@ void menuRendimento(FILE *fp)
 void inicializaCoefRend()
 {
     free(cRend);
-    cRend =   malloc(capAlunos * sizeof(cRendimento));
+    cRend =   calloc(capAlunos,sizeof(cRendimento));
 
     if(cRend==NULL)
         puts("FALHA NO MALLOC DO cRend");
 
     free(crDesc);
-    crDesc =    malloc(sizeof(crDescritor));
+    crDesc =    calloc(1,sizeof(crDescritor));
     
     if(crDesc==NULL)
         puts("FALHA NO MALLOC DO crDesc");
