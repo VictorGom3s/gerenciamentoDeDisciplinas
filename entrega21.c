@@ -97,7 +97,7 @@ void menuAlterarNotaFalta()
             else
                 puts("\nDisciplina nao existente no semestre!");
         }
-    }    
+    }  
 }
 
 //Funcao para jogar toda a struct no arquivo

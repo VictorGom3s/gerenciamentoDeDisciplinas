@@ -31,9 +31,6 @@ void menuHistoricoAluno()
         fprintf(fp,"RA: %ld\n",user->ra);
 
         menuRendimento(fp); // chama a funcao para calcular os coeficiente de rendimento
-
-        fprintf(fp,"Disciplina	    Nota        Faltas (%%)    Situação\n");
-
         writeDisciplinas(fp);   // chama a funcao para escrever as disciplinas
 
         fflush(fp);
@@ -161,6 +158,8 @@ void writeDisciplinas(FILE *fp)
     }
     else
     {
+        fprintf(fp,"Disciplina\tNota\t\tFaltas (%%)\tSituação\n");
+
         for(register int i = 0;i<novaDE->top;i++)
         {
 
@@ -168,10 +167,10 @@ void writeDisciplinas(FILE *fp)
             {
 
                 //fprintf(fp,"\n\nSI200  		    7.1 	    10.4    	  Aprovado por Nota e Frequência\n"); //Exemplo de formatacao para pegar a tabulacao
-                if(strcmp(EXT,".txt")==0)
-                    fprintf(fp,"%s  		    %0.2f 	    %0.2f    	  ",novaNTD[i].disciplina,novaNTD[i].nota,novaNTD[i].faltas);
-                else
-                    fprintf(fp,"%s  		    %0.2f 	%0.2f         ",novaNTD[i].disciplina,novaNTD[i].nota,novaNTD[i].faltas);
+                //if(strcmp(EXT,".txt")==0)
+                //    fprintf(fp,"%s  		    %0.2f 	    %0.2f    	  ",novaNTD[i].disciplina,novaNTD[i].nota,novaNTD[i].faltas);
+                //else
+                fprintf(fp,"%s\t\t%0.2f\t\t%0.2f\t\t",novaNTD[i].disciplina,novaNTD[i].nota,novaNTD[i].faltas);
 
                 //Verifica os parametros de nota e falta para verificar se o aluno passou ou nao
                 /*  Condicoes:
