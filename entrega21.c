@@ -96,10 +96,7 @@ void menuAlterarNotaFalta()
             else
                 puts("\nDisciplina nao existente no semestre!");
         }
-    }  
-
-    free(novaNTD);
-    free(novaDE);  
+    }    
 }
 
 //Funcao para jogar toda a struct no arquivo
@@ -157,13 +154,13 @@ int verificaDisciplinaStruct(char *disciplina,int semestre)
 void inicializaDiscNotaFalta()
 {
     free(novaNTD);
-    novaNTD =   malloc(cap * sizeof(ntDisciplina));
+    novaNTD =   calloc(cap,sizeof(ntDisciplina));
 
     if(novaNTD==NULL)
         puts("FALHA NO MALLOC DO novaNTD");
 
     free(novaDE);
-    novaDE =    malloc(sizeof(ntDescritor));
+    novaDE =    calloc(1,sizeof(ntDescritor));
     
     if(novaDE==NULL)
         puts("FALHA NO MALLOC DO novaDE");
